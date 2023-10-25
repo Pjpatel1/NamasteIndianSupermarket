@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import image1 from  "../Images/Home1.png";
 import image2 from  "../Images/Home2.png";
 import image3 from "../Images/Home3.png";
-
+import { Link } from 'react-router-dom';
 const Carousel = () => {
   const settings = {
     dots: true,
@@ -17,6 +17,13 @@ const Carousel = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+  
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   return (
     <div className="carousel-container1">
@@ -35,7 +42,7 @@ const Carousel = () => {
       <div className="text-overlay">
         <p>Namaste <br></br>Indian Supermarket</p>
         <div>
-          <button className='StoreLocator'>
+          <button className='StoreLocator' onClick={()=>scrollToSection('Location')}>
             Locate the Store
           </button>
         </div>
