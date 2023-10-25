@@ -16,7 +16,7 @@ import Vegetables from "./Components/Categorized/Vegitables";
 import ProductDetails from './Components/ProductDetails';
 function App() {
   return (
-    <BrowserRouter basename="/Namaste">
+    <BrowserRouter >
       <Header/>
       <Routes>
         <Route path='Landing' element={<Landing />} />
