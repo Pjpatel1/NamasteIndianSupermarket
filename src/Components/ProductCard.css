@@ -1,0 +1,46 @@
+.ProductCards
+{
+    display: grid;
+    margin: 2rem;
+    grid-template-columns: repeat(auto-fit,  20rem);
+    justify-content: center;
+}
+.ProductCard
+{
+    width: 300px;
+    height: auto;
+    margin: 30px;
+    /* background-color: #; */
+    border-radius: 20px;
+}
+.ProImage
+{
+    background-size: cover;
+    width:280px;
+    margin: 10px;
+    border-radius: 20px;
+}
+.ProductDetailsbtn
+{
+    
+}
+.ProductPrice
+{
+    text-align: center;
+}
+.VDbtn
+{
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border-radius: 20px;
+    color:#FFFFFF;
+    margin: 0 auto;
+}
+.VDbtn:hover
+{
+    background-color:#388E3C;
+}
+@media screen and (min-width:600px) {
+    
+}
