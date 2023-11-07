@@ -37,9 +37,9 @@ function App() {
         <Route path='Vegetable' element={<Vegetables/>}/>
         <Route path="*" element={<NotFoundPage />} />
         <Route path="ProductDetail" element={<ProductDetails/>}/>
-        <Route path="/login" element={<LogIn/>}/>
-        <Route path="/Signup" element={<Signup/>}/>
-        <Route path="/ForgotPassword" element={<Forgotpassword/>}/>
+        <Route path="login" element={<LogIn/>}/>
+        <Route path="Signup" element={<Signup/>}/>
+        <Route path="ForgotPassword" element={<Forgotpassword/>}/>
         <Route path="userCart" element={<UserCart/>}/>
       </Routes>
     </BrowserRouter>

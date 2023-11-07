@@ -16,7 +16,7 @@ function LogIn() {
         e.preventDefault();
         try
         {
-            const response =  await axios.post('https://sampleserver-96f7c60072ed.herokuapp.comh/signin',{
+            const response =  await axios.post('https://sampleserver-96f7c60072ed.herokuapp.com/signin',{
                 Email,
                 Password
             });
@@ -92,7 +92,7 @@ function LogIn() {
                     Login
                 </button>
                 <div className="forgotPassowrd">
-                   <Link to="/ForgotPassword"> Forgot Password </Link>
+                   <Link to="ForgotPassword"> Forgot Password </Link>
                 </div>
                 <div>
                     <button className="Registerbtn"onClick={handleRedirect}>

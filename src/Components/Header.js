@@ -9,7 +9,6 @@ import CartLogo from "../Images/shoppingCart.png"
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useUser} from '../Components/Auth/UserContext';
-
 function Header ()
 {
     const navigate = useNavigate();
@@ -18,8 +17,15 @@ function Header ()
     const navRef = useRef();
     const handleLogout = () => {
         logout();
-        navigate('/login');
+        navigate('login');
     };
+    const handleLogin = () =>{
+        navigate('login')
+    }
+    const handleSignup = () =>
+    {
+        navigate('Signup')
+    }
 	const showNavbar = () => {
 		navRef.current.classList.toggle(
 			"responsive_nav"
@@ -122,8 +128,8 @@ function Header ()
                     </>
                 ) : (
                     <>
-                        <Link to = "login"><Dropdown.Item >Login</Dropdown.Item></Link>
-                        <Link to = "Signup"><Dropdown.Item >Signup</Dropdown.Item></Link>
+                        <Link to = "login"><Dropdown.Item onClick={handleLogin}>Login</Dropdown.Item></Link>
+                        <Link to = "Signup"><Dropdown.Item onClick={handleSignup}>Signup</Dropdown.Item></Link>
                     </>
                 )}
                 </Dropdown.Menu>
