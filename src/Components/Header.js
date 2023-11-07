@@ -122,8 +122,8 @@ function Header ()
                     </>
                 ) : (
                     <>
-                        <Link to="/login"><Dropdown.Item >Login</Dropdown.Item></Link>
-                        <Link to = "/Signup"><Dropdown.Item >Signup</Dropdown.Item></Link>
+                        <Link to = "login"><Dropdown.Item >Login</Dropdown.Item></Link>
+                        <Link to = "Signup"><Dropdown.Item >Signup</Dropdown.Item></Link>
                     </>
                 )}
                 </Dropdown.Menu>
