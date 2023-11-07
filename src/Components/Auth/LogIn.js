@@ -16,7 +16,7 @@ function LogIn() {
         e.preventDefault();
         try
         {
-            const response =  await axios.post('https://sampleserver-96f7c60072ed.herokuapp.com/signin',{
+            const response =  await axios.post('https://sampleserver-96f7c60072ed.herokuapp.comh/signin',{
                 Email,
                 Password
             });

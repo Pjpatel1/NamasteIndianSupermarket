@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import image1 from  "../Images/Home1.png";
 import image2 from  "../Images/Home2.png";
 import image3 from "../Images/Home3.png";
-import { Link } from 'react-router-dom';
 const Carousel = () => {
   const settings = {
     dots: true,
