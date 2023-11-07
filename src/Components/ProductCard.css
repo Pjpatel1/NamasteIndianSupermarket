@@ -5,6 +5,11 @@
     grid-template-columns: repeat(auto-fit,  20rem);
     justify-content: center;
 }
+.ImageAddToCart
+{
+    width: 40px;
+
+}
 .ProductCard
 {
     width: 300px;
@@ -22,7 +27,8 @@
 }
 .ProductDetailsbtn
 {
-    
+    display: flex;
+    align-items: center;
 }
 .ProductPrice
 {
@@ -39,7 +45,21 @@
 }
 .VDbtn:hover
 {
-    background-color:#388E3C;
+    background-color:#59f387fd;
+}
+.Quantity
+{
+    width: 30px;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 3px;
+    color:#FFFFFF;
+    margin: 0 auto;
+}
+.QtyLabel
+{
+    font-family: "Raleaway";
+    margin-right:5px;
 }
 @media screen and (min-width:600px) {
     

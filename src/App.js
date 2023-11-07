@@ -14,8 +14,14 @@ import IndianSnacks from "./Components/Categorized/IndianSnacks";
 import Lentils from "./Components/Categorized/lentils";
 import Vegetables from "./Components/Categorized/Vegitables";
 import ProductDetails from './Components/ProductDetails';
+import LogIn from './Components/Auth/LogIn';
+import Signup from './Components/Auth/Signup';
+import Forgotpassword from './Components/Auth/Forgotpassword';
+import UserCart from './Components/Cart/UserCart';
+import { UserProvider } from '../src/Components/Auth/UserContext'; // Import the UserProvider
 function App() {
   return (
+    <UserProvider>
     <BrowserRouter >
       <Header/>
       <Routes>
@@ -31,8 +37,13 @@ function App() {
         <Route path='Vegetable' element={<Vegetables/>}/>
         <Route path="*" element={<NotFoundPage />} />
         <Route path="ProductDetail" element={<ProductDetails/>}/>
+        <Route path="/login" element={<LogIn/>}/>
+        <Route path="/Signup" element={<Signup/>}/>
+        <Route path="/ForgotPassword" element={<Forgotpassword/>}/>
+        <Route path="userCart" element={<UserCart/>}/>
       </Routes>
     </BrowserRouter>
+    </UserProvider>
   );
 }
 export default App;

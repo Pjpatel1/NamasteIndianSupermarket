@@ -21,6 +21,10 @@ nav a{
     width: 100% ;
     margin: 0 auto;
 }
+.Cart
+{
+	width:20px;
+}
 header {
 	display: flex;
 	align-items: center;
@@ -111,7 +115,7 @@ nav {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 1.5rem;
+		gap: 0.5rem;
 		background-color: #4CAF50;
 		transition: 0.8s;
 		z-index: 10;

@@ -138,9 +138,6 @@ function CardSlider() {
             </div>
     </Slider>
   </div>
-
-    
-    
   );
 }
 
