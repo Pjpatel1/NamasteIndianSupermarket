@@ -21,10 +21,12 @@ function Header ()
     };
     const handleLogin = () =>{
         navigate('login')
+        showNavbar();
     }
     const handleSignup = () =>
     {
         navigate('Signup')
+        showNavbar();
     }
 	const showNavbar = () => {
 		navRef.current.classList.toggle(
@@ -58,52 +60,52 @@ function Header ()
                 </div>
             </Link>
             <Link to="Flyers">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Flyer
                 </div>
             </Link>
             <Link to="Vegetable">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}> 
                     Vegetable
                 </div>
             </Link>
             <Link to = "IndianSnacks">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Indian Snacks
                 </div>
             </Link>
             <Link to = "Lentils">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Lentils
                 </div>
             </Link>
            
             <Link to = "Drinks">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Drinks
                 </div>
             </Link>
             <Link to =  "Flowers">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Flowers
                 </div>
             </Link>
             <Link to = "Lentils">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Lentils
                 </div>
             </Link>
             <Link to = "Frozen">
-                <div className="Nav-Elements">
+                <div className="Nav-Elements" onClick={(e)=>{showNavbar(e)}}>
                     Frozen Foods
                 </div>
             </Link>
-            <div className="CartIconCover">
+            <div className="CartIconCover" onClick={(e)=>{showNavbar(e)}}>
                 <img src={CartLogo} alt="UserCart" className="Cart" onClick={()=>openCart()}></img>
             </div>
             <button
                 className="nav-btn nav-close-btn"
-                onClick={showNavbar}>
+                onClick={(e)=>{showNavbar(e)}}>
                 <FaTimes />
             </button>
             <Dropdown>
@@ -118,7 +120,7 @@ function Header ()
                             </svg>}
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu >
                     
                 {user.loggedIn ? 
                 (
@@ -128,8 +130,8 @@ function Header ()
                     </>
                 ) : (
                     <>
-                        <Link to = "login"><Dropdown.Item onClick={handleLogin}>Login</Dropdown.Item></Link>
-                        <Link to = "Signup"><Dropdown.Item onClick={handleSignup}>Signup</Dropdown.Item></Link>
+                        <Link to = "login"><Dropdown.Item onClick={handleLogin} >Login</Dropdown.Item></Link>
+                        <Link to = "Signup"><Dropdown.Item onClick={handleSignup} >Signup</Dropdown.Item></Link>
                     </>
                 )}
                 </Dropdown.Menu>

@@ -8,41 +8,51 @@ import QuantityInput from '../mui/mui';
 function UserCart() {
     const [cartItems, setCartItems] = useState([]);
     const {user} = useUser();
-
     useEffect(() => {
         // Make a GET request to fetch the user's cart items
         axios.get(`https://sampleserver-96f7c60072ed.herokuapp.com/cart/get-cart/${user.userId}`)
           .then((response) => {
             setCartItems(response.data);
-            console.log(cartItems);
             cartItems.map((cartItems)=>{
                 console.log(cartItems._id);
                 console.log(cartItems.productId.Brand)
                 console.log(cartItems.productId.Quantity)
                 console.log(cartItems.totalAmount)
+                console.log(cartItems.quantity)
+                
             })
           })
           .catch((error) => {
             console.error('Error fetching cart:', error);
           });
       }, [user.userId]);
-    
+      const calculateTotalAmount = () => {
+        let total = 0;
+        cartItems.forEach((cartItem) => {
+          total += cartItem.totalAmount;
+        });
+        return total;
+      };
+     
   return (
     <div>
         <div className='CartPage'>
-            Your Cart
+            Cart
             {cartItems.map((cartItem)=>(
               <div key = {cartItem.Id} className='CartProduct'>
                   <div className='ProductImageCover'>
-                    <img className="ProImage"src={cartItem.productId.ProductImage1}/>
+                    <img className="ProductImage"src={cartItem.productId.ProductImage1}/>
                   </div>
                   <div className='CartProductDetails'>
-                    <div className='CartProductName'>
-                        {cartItem.productId.Name}
-                    </div>
-                    <div className='CartPrice'>
-                      Price: {cartItem.productId.Price}
-                    </div>
+                      <div className='CartProductName'>
+                        <span className="cartMainText">{cartItem.productId.Name}</span>
+                      </div>
+                      <div className='CartProductName'>
+                      <span className="cartMainText"> Price:</span> <span className="CartValues">{cartItem.productId.Price}</span>
+                      </div>
+                      <div className="CartProductName">
+                      <span className="cartMainText"> Quantity:</span> <span className="CartValues">{cartItem.quantity}</span>
+                      </div>
                     <div>
 
                     </div>
@@ -55,8 +65,19 @@ function UserCart() {
                   
               </div>
             ))}
+            <div className="billing">
+              <div className="cartMainText">
+              Total:
+              </div>
+              <div className="FreeSpace"></div>
+              <div className="billAmount">
+                {calculateTotalAmount()}
+              </div>
             </div>
-            
+            </div>
+            <div className="cartValues Greeting">
+                Approved Thank You
+            </div>      
     </div>
   )
 }
