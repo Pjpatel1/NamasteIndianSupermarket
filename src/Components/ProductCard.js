@@ -20,7 +20,7 @@ function ProductCard({product}) {
         axios.post('https://sampleserver-96f7c60072ed.herokuapp.com/cart/add-to-cart', {
             userId: user.userId, 
             productId: product._id,
-          quantity: Quantity
+            quantity: Quantity
         })
           .then((response) => {
             console.log('Product added to cart:', response.data);
@@ -44,20 +44,17 @@ function ProductCard({product}) {
                 {product.Name}
             </div>
             <div className='ProductDetailsbtn'>
-                <Link to="../ProductDetail">
-                    <button className='VDbtn'>
-                        View Details
-                    </button>
-                </Link>
-                <div className='FreeSpace'>
-                </div>
-                <input
+            <div className='QuantityLabel'>Quantity: </div>
+            <input
                     type="number"
                     paceholder="Quantity"
                     value={Quantity}
                     className='Quantity'
                     onChange={(e) => setQuantity(e.target.value)}
                 />
+                <div className='FreeSpace'>
+                </div>
+                
                 <div className='AddToCart'>
                     <img src={AddToCart} alt="Add to cart" className='ImageAddToCart' onClick={addToCart} />
                 </div>

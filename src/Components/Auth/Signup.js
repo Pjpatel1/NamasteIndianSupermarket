@@ -1,30 +1,80 @@
 import React, { useState } from 'react'
 import "./Auth.css"
 import { Link, useNavigate } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 import axios from 'axios';
+
 function Signup() {
   const navigate = useNavigate();
     // const handleRedirect = () =>
     // {
     //     navigate('/');
     // };
+
     const [Fname, setFname] = useState();
     const [Lname, setLname] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
     const [Password, setPassword] = useState();
     const [Email, setEmail] = useState();
+    const [error, setError] = useState('Okay');
+
+    const isEmailValid = (Email) => {
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      return emailRegex.test(Email);
+    };
+    const isPasswordValid = (Password) =>{
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+      return passwordRegex.test(Password);
+    }
     const handleSignup = async (e) =>
     {
       e.preventDefault();
+        if (!Fname || !Lname || !Email || !confirmPassword)
+        {
+          setError('Please fill in all fields');
+          return;
+        }
+        if(!isEmailValid(Email))
+        {
+          setError("Please Enter a valid email address.");
+          return;
+        }
+        if(!isPasswordValid(Password))
+        {
+          setError('Please Enter a Valid password with at least 8 character, including, number, and symbol.');
+          return;
+        }
       if(Password === confirmPassword)
       {
+        
          try{
+          //Hosted server
           const response =  await axios.post('https://sampleserver-96f7c60072ed.herokuapp.com/register',{
             FirstName: Fname,
             LastName: Lname,
             Email: Email,
             Password: Password,
           });
+          const localresponse =  await axios.post('https://localhost3001:/register',{
+            FirstName: Fname,
+            LastName: Lname,
+            Email: Email,
+            Password: Password,
+        });
+
+        // This is for local server
+        if(localresponse.status === 200)
+          {
+            alert('User created Successfully go ahead and sign in');
+            navigate('/login');
+          }
+         
+          else
+          {
+            alert('Signup failed. Please try again.');
+          }
+          //THis is for hosted  server
           if(response.status === 200)
           {
             alert('User created Successfully go ahead and sign in');
@@ -41,7 +91,7 @@ function Signup() {
          {
             if(error.message === "Request failed with status code 400")
             {
-              alert("User already exist use different email")
+              setError("User already exist use different email");
             }
           console.error('Error', error);
           console.log(' An error occured while SigningUp.');
@@ -50,6 +100,8 @@ function Signup() {
       else
       {
         console.log('Password do not match');
+        setError('Passwords do not match.');
+        return;
       }
     };
     
@@ -116,7 +168,16 @@ function Signup() {
                     Google 
                   </div>
               </div>
-          </div>
+            </div>
+            <div className='Alerts'>
+            <Stack sx={{ width: '100%' }} spacing={3}>
+            {(error =="Please fill in all fields") ?<Alert severity="error">Please fill in all field.</Alert>: null }
+            {(error =="Please Enter a valid email address.") ?<Alert severity="error">Please enter calid email address.</Alert>: null }
+            {(error =="Please Enter a Valid password with at least 8 character, including, number, and symbol.") ?<Alert severity="error">Please Enter a Valid password with at least 8 character, including, number, and symbol.</Alert>: null }
+            {(error =="Passwords do not match.") ?<Alert severity="error">Passwords do not match.</Alert>: null }
+            {(error == "User already exist use different email")?<Alert severity='error'>User already exist use different Email</Alert>:null}
+            </Stack>
+            </div>
         </div>
   )
 }

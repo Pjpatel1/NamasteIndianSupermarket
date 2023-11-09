@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './Preloader.scss'
 import {preLoaderAnim} from "../animations/index";
 import { useNavigate } from 'react-router-dom';
+import {useUser} from '../Components/Auth/UserContext';
 function Preloader() {
+  const { user, logout } = useUser();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
         useEffect(() => {
@@ -20,7 +22,7 @@ function Preloader() {
   return (
     <div className="preloader">
       <div className="texts-container">
-        <span>Namaste</span>
+        <span>Namaste {user.firstName}</span> 
       </div>
     </div>
   )

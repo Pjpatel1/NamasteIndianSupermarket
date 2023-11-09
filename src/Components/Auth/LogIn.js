@@ -99,9 +99,6 @@ function LogIn() {
                         Create New Account
                     </button>
                 </div>
-            <p className='text'>
-                Or login Using
-            </p>
             <div className='alt-login'>
                 <div className='facebook'>
                 </div>
@@ -116,15 +113,9 @@ function LogIn() {
                             icon={false}    // alt is true, and this puts the google logo on your button, but I don't like it
                             theme="dark"  // alternative is light, which is white
                         /> */}
-                        Google login
                 </div>
             </div>
-            <div className={popupStyle}>
-                <h3>Login Failed</h3>
-                <p>
-                    Username or Password incorrect
-                </p>
-            </div>
+            
         </div>
     </div>
   )

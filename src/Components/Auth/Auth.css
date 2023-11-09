@@ -103,7 +103,13 @@
 .FLInputs
 {
     display: flex;
-    gap:10px;
+    gap:4px;
     margin:0 auto;
-    width: 280px;
+    width: 247px;
+    
+}
+.Alerts
+{
+    position: absolute;
+    right: 0px;
 }
